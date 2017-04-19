@@ -21,6 +21,14 @@
     width: 400px;
   }
 }
+/* bar styles */
+#churn-message.churn-message-bar {
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
 #churn-message h1 {
   margin: 20px 0;
   font-size: 32px;
@@ -36,8 +44,14 @@
   background: transparent url('icon-card.png') no-repeat center center;
   background-size: 60px 48px;
 }
+#churn-message.churn-message-bar i.churn-messaging-card {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 25px;
+}
 #churn-message-close {
   position: absolute;
+  z-index: 2;
   top: 20px;
   right: 20px;
   display: block;
@@ -58,6 +72,10 @@
 }
 #churn-messaging-update-url:hover {
   background: #27ae60;
+}
+#churn-message.churn-message-bar #churn-messaging-update-url {
+  margin-top: 0;
+  margin-left: 25px;
 }
 
 #churn-message-bg {
