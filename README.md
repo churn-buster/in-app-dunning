@@ -5,20 +5,21 @@ In-app-dunning is a javascript library that allows you present a message to your
 ## Requirements
 
 The only requirement for getting this library to work is to provide a way to set this variable:
-  ```churnMessaging.showMessage = true|false;```
+
+```churnMessaging.showMessage = true|false;```
 
 ## Installation
 
 To start using the library simply add this code to the head of the html documents you want the message to be displayed on, taking care to set the `showMessage` variable appropriately so only the customers you want to see the messaging see it.
 
 ```<script type="text/javascript" src="in-app-dunning.js"></script>
-    <script type="text/javascript">
-      churnMessaging.showMessage = true|false;
+<script type="text/javascript">
+  churnMessaging.showMessage = true|false;
 
-      window.onload = function () {
-        churnMessaging.check();
-      }
-    </script>```
+  window.onload = function () {
+    churnMessaging.check();
+  }
+</script>```
 
 ## Customization
 
