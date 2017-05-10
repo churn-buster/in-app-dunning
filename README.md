@@ -11,15 +11,16 @@ The only requirement for getting this library to work is to provide a way to set
 ## Installation
 
 To start using the library simply add this code to the head of the html documents you want the message to be displayed on, taking care to set the `showMessage` variable appropriately so only the customers you want to see the messaging see it.
-
-```<script type="text/javascript" src="in-app-dunning.js"></script>
+```
+<script type="text/javascript" src="in-app-dunning.js"></script>
 <script type="text/javascript">
   churnMessaging.showMessage = true|false;
 
   window.onload = function () {
     churnMessaging.check();
   }
-</script>```
+</script>
+```
 
 ## Customization
 
@@ -41,35 +42,43 @@ Depending on the style selected you can change the messages by setting the follo
 
 If you're using the modal style:
 
-```churnMessaging.modal.msg1.text1
+```
+churnMessaging.modal.msg1.text1
 churnMessaging.modal.msg1.text2
 churnMessaging.modal.msg1.buttonText
 churnMessaging.modal.msg2.text1
 churnMessaging.modal.msg2.text2
-churnMessaging.modal.msg2.buttonText```
+churnMessaging.modal.msg2.buttonText
+```
 
 And if you're using the bar style:
 
-```churnMessaging.bar.msg1.text
+```
+churnMessaging.bar.msg1.text
 churnMessaging.bar.msg1.buttonText
 churnMessaging.bar.msg2.text
-churnMessaging.bar.msg2.buttonText```
+churnMessaging.bar.msg2.buttonText
+```
 
 ### Color
 
 If you're using the modal style we've you can change the button colors quite easily with these options:
 
-```churnMessaging.modal.msg1.buttonTextcolor
+```
+churnMessaging.modal.msg1.buttonTextcolor
 churnMessaging.modal.msg1.buttonColor
 churnMessaging.modal.msg2.buttonTextcolor
-churnMessaging.modal.msg2.buttonColor```
+churnMessaging.modal.msg2.buttonColor
+```
 
 For the bar style:
 
-```churnMessaging.bar.bgColor
+```
+churnMessaging.bar.bgColor
 churnMessaging.bar.textColor
 churnMessaging.bar.buttonBgColor
-churnMessaging.bar.buttonTextcolor```
+churnMessaging.bar.buttonTextcolor
+```
 
 ### Close Button
 
