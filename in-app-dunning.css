@@ -76,6 +76,7 @@
 #churn-message.churn-message-bar #churn-messaging-update-url {
   margin-top: 0;
   margin-left: 25px;
+  padding: 10px 15px;
 }
 
 #churn-message-bg {

@@ -4,7 +4,7 @@ churnMessaging = {
   buttonUrl: 'https://churnbuster.io/update',
   msgSeen: localStorage.getItem('chrnMsgSeen'),
   switchMsgAfter: 24, // hours
-  style: 'bar', // modal|bar
+  style: 'modal', // modal|bar
   closeBtn: true,
   modal: {
     msg1: {
@@ -33,8 +33,8 @@ churnMessaging = {
       text: 'We haven\'t been able to process your past-due balance. Please update your payment information right away to avoid interruption.',
       buttonText: 'Update Your Card'
     },
-    bgColor: '#fff',
-    textColor: '#333',
+    bgColor: '#d5e7f3',
+    textColor: '#3498db',
     buttonBgColor: '#2ecc71',
     buttonTextcolor: '#fff',
     position: 'bottom' // top|bottom
