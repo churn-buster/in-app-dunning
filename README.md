@@ -1,6 +1,8 @@
 # In-App-Dunning
 
-In-app-dunning is a javascript library that allows you present a message to your customers with overdue or failed payments.
+In-app-dunning is a javascript library that allows you respond to failed payments by displaying a message to subscribers while they are logged into your app.
+
+It's an easy way to give them a nudge to update their payment method while you have their attention.
 
 ## Requirements
 
@@ -38,9 +40,9 @@ The style is set with this variable:
 
 We've provided 2 different messages with some great default text. You can edit the messaging to your liking and also change when the 2nd message is displayed.
 
-Depending on the style selected you can change the messages by setting the following variables:
+Depending on the style selected you can change the messages by setting the following variables.
 
-If you're using the modal style:
+For the modal style:
 
 ```
 churnMessaging.modal.msg1.text1
@@ -51,7 +53,7 @@ churnMessaging.modal.msg2.text2
 churnMessaging.modal.msg2.buttonText
 ```
 
-And if you're using the bar style:
+For the bar style:
 
 ```
 churnMessaging.bar.msg1.text
@@ -62,7 +64,7 @@ churnMessaging.bar.msg2.buttonText
 
 ### Color
 
-If you're using the modal style we've you can change the button colors quite easily with these options:
+For the modal style, change button colors quite with these options:
 
 ```
 churnMessaging.modal.msg1.buttonTextcolor
@@ -82,13 +84,13 @@ churnMessaging.bar.buttonTextcolor
 
 ### Close Button
 
-If you want to get a little in the face of your customers and not let them dismiss the messaging you can use the `churnMessaging.closeBtn` option to hide it (the default is to show it)
+For more aggressive messaging, you can hide the close button (so the notification can't be easily dismissed) by using the `churnMessaging.closeBtn` option.
 
 ```churnMessaging.closeBtn```
 
 ### Position
 
-You can position the modal in 5 different places of the screen and the bar in 2 by setting `churnMessaging.modal.position`.
+You can position the modal in 5 different places of the screen, and the bar in 2, by setting `churnMessaging.modal.position`.
 
 The 5 modal options are:
 
@@ -101,7 +103,7 @@ And the 2 bar options are:
 ### Modal Specific Options
 ***Background***
 
-You can choose to either have a background behind the overlay or not with this option:
+You can choose to either have a background behind the overlay, or not have a backround, with this option:
 
 ```churnMessaging.modal.overlayBg```
 
