@@ -1,4 +1,5 @@
-# In-App-Dunning
+# In-App Dunning for Failed Payments
+## Compatible with Stripe, Braintree, Authorize.net, and any other payment processor
 
 In-app-dunning is a javascript library that allows you respond to failed payments by displaying a message to subscribers while they are logged into your app.
 
@@ -38,7 +39,7 @@ The style is set with this variable:
 
 ### Messaging
 
-We've provided 2 different messages with some great default text. You can edit the messaging to your liking and also change when the 2nd message is displayed.
+Default messaging is provided, editable to your liking.
 
 Depending on the style selected you can change the messages by setting the following variables.
 
@@ -103,7 +104,7 @@ And the 2 bar options are:
 ### Modal Specific Options
 ***Background***
 
-You can choose to either have a background behind the overlay, or not have a backround, with this option:
+You can choose to either have a background behind the modal, or not have one, with this option:
 
 ```churnMessaging.modal.overlayBg```
 
