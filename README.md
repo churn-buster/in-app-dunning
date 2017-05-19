@@ -5,7 +5,7 @@ In-app-dunning is a javascript library that allows you respond to failed payment
 
 It's an easy way to give them a nudge to update their payment method while you have their attention.
 
-[Churn Buster logo]
+![Churnbuster](https://cloud.githubusercontent.com/assets/472769/26270552/58fa663c-3cc1-11e7-979d-9e6cc0d2a5ca.png)
 If you are finding failed payments to be a regular problem, check out our core application at https://churnbuster.io.
 
 
