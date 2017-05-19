@@ -1,162 +1,122 @@
-churnMessaging = {
+InAppDunning = {
   // set vars here
-  showMessage: false,
-  buttonUrl: 'https://churnbuster.io/update',
-  msgSeen: localStorage.getItem('chrnMsgSeen'),
-  switchMsgAfter: 24, // hours
-  style: 'modal', // modal|bar
-  closeBtn: true,
   modal: {
-    msg1: {
+    msg: {
       text1: 'Hey!',
       text2: 'We\'ve had some trouble with your most recent payment. We\'ll keep trying. If you need to update your payment information, click the green button.',
       buttonText: 'Update Your Card',
       buttonTextcolor: '#fff',
       buttonColor: '#2ecc71'
-    },
-    msg2: {
-      text1: 'Hey!',
-      text2: 'We haven\'t been able to process your past-due balance, and your account is currently delinquent. Please update your payment information right away to avoid interruption to your service.',
-      buttonText: 'Update Your Card',
-      buttonTextcolor: '#fff',
-      buttonColor: '#2ecc71'
-    },
-    overlayBg: true,
-    position: 'center' // center|bottom-right|bottom-left|top-right|top-left
+    }
   },
   bar: {
-    msg1: {
+    msg: {
       text: 'We\'ve had some trouble with your most recent payment. If you need to update your payment information',
       buttonText: 'Do it'
-    },
-    msg2: {
-      text: 'We haven\'t been able to process your past-due balance. Please update your payment information right away to avoid interruption.',
-      buttonText: 'Update Your Card'
-    },
-    bgColor: '#d5e7f3',
-    textColor: '#3498db',
-    buttonBgColor: '#2ecc71',
-    buttonTextcolor: '#fff',
-    position: 'bottom' // top|bottom
-  },
-
-  check: function(){
-    // check the variable and kick things off
-    if(this.showMessage) {
-      // get current timestamp
-      var currentTimestamp = Math.floor(Date.now() / 1000);
-      var spaceBetweenMessages = currentTimestamp - this.msgSeen;
-      var switchAfter = this.switchMsgAfter * 3600;
-      // check if msg_seen exists to determine which template we should display
-      if (this.msgSeen && spaceBetweenMessages > switchAfter) {
-        // saw first message & it's time for #2
-        this.show(2);
-      } else if (this.msgSeen) {
-        // has seen the 1st message before but it\'s not time for message 2
-        this.show(1);
-      } else {
-        // hasn't seen a message
-        this.show(1);
-        // set localstorage
-        localStorage.setItem('chrnMsgSeen', Math.floor(Date.now() / 1000));
-      }
     }
   },
-  show: function(msgNum) {
-    // create the message
-    var ctaText = 'Get Started';
-    var ctaBgColor = '#666';
-    var ctaTextColor = '#fff';
-    var msgNum = 'msg'+msgNum;
-    var div = document.createElement('div');
-    div.setAttribute('id', 'churn-message');
-    document.body.appendChild(div);
-    // place the template contents into the div
-    var chrnMsgDiv = document.getElementById('churn-message');
-    if (this.style == 'bar') {
-      chrnMsgDiv.innerHTML = '<i class="churn-messaging-card"></i>'+this.bar[msgNum].text;
-    } else {
-      chrnMsgDiv.innerHTML = '<i class="churn-messaging-card"></i><h1>'+this.modal[msgNum].text1+'</h1><p>'+this.modal[msgNum].text2+'</p>';
-    }
-    // if style=bar set it up
-    if (this.style == 'bar') {
-      ctaText = this.bar[msgNum].buttonText;
-      ctaBgColor = this.bar.buttonBgColor;
-      ctaTextColor = this.bar.buttonTextcolor;
-      div.setAttribute('class', 'churn-message-bar');
-      // set background color
-      div.style.backgroundColor = this.bar.bgColor;
-      // set text color
-      div.style.color = this.bar.textColor;
-    } else {
-      ctaText = this.modal[msgNum].buttonText;
-      ctaBgColor = this.modal[msgNum].buttonBgColor;
-      ctaTextColor = this.modal[msgNum].buttonTextcolor;
-      // or if style=modal set it up
-      if (this.modal.overlayBg == true) {
-        // use bg overlay
-        var div = document.createElement('div');
-        div.setAttribute('id', 'churn-message-bg');
-        document.body.appendChild(div);
-      }
-    }
-    // see if we need to show the close button
-    if (this.closeBtn == true) {
-      // add the close button
+  show: function(opts) {
+    if (opts.show === true) {
+      // create the message
+      var ctaText = 'Get Started';
+      var ctaBgColor = '#666';
+      var ctaTextColor = '#fff';
       var div = document.createElement('div');
-      div.setAttribute('id', 'churn-message-close');
-      chrnMsgDiv.appendChild(div);
-      document.getElementById('churn-message-close').onclick = function() {
-        // fadout the bg and message
-        churnMessaging.fadeout(document.getElementById('churn-message'));
-        churnMessaging.fadeout(document.getElementById('churn-message-bg'));
-      };
+      div.setAttribute('id', 'in-app-message');
+      document.body.appendChild(div);
+      // place the template contents into the div
+      var chrnMsgDiv = document.getElementById('in-app-message');
+      if (opts.style == 'bar') {
+        chrnMsgDiv.innerHTML = '<i class="in-app-messaging-card"></i>'+this.bar.msg.text;
+      } else {
+        chrnMsgDiv.innerHTML = '<i class="in-app-messaging-card"></i><h1>'+this.modal.msg.text1+'</h1><p>'+this.modal.msg.text2+'</p>';
+      }
+      // if style=bar set it up
+      if (opts.style && opts.style == 'bar') {
+        ctaText = this.bar.msg.buttonText;
+        ctaBgColor = opts.button.bgColor;
+        ctaTextColor = opts.button.color;
+        div.setAttribute('class', 'in-app-message-bar');
+        // set background color
+        div.style.backgroundColor = opts.bar.bgColor;
+        // set text color
+        div.style.color = opts.bar.color;
+        chrnMsgDiv.style[opts.position] = 0;
+      } else {
+        ctaText = this.modal.msg.buttonText;
+        if (opts.button && opts.button.bgColor) {
+          ctaBgColor = opts.button.bgColor;
+        }
+        if (opts.button && opts.button.color) {
+          ctaTextColor = opts.button.color;
+        }
+        // or if style=modal set it up
+        if (opts.modal && opts.modal.overlay && opts.modal.overlay == true) {
+          // use bg overlay
+          var bgDiv = document.createElement('div');
+          bgDiv.setAttribute('id', 'in-app-message-bg');
+          document.body.appendChild(bgDiv);
+        }
+        // position the modal
+        if (opts.position == 'center' || !opts.position) {
+          // need to display to be visible to get values so set the visibility instead
+          chrnMsgDiv.style.visibility = "hidden";
+          chrnMsgDiv.style.display = "block";
+          winHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+          winMiddle = winHeight / 2;
+          elMiddle = chrnMsgDiv.offsetHeight / 2;
+          elHalfWidth = chrnMsgDiv.offsetWidth / 2;
+          chrnMsgDiv.style.top = (winMiddle - elMiddle) + 'px';
+          chrnMsgDiv.style.left = 'calc(50% - '+elHalfWidth+'px)';
+          // reset the display/visibility
+          chrnMsgDiv.style.display = "none";
+          chrnMsgDiv.style.visibility = "visible";
+        }
+        if (opts.position == 'bottom-right') {
+          chrnMsgDiv.style.bottom = '10px';
+          chrnMsgDiv.style.right = '10px';
+        }
+        if (opts.position == 'bottom-left') {
+          chrnMsgDiv.style.bottom = '10px';
+          chrnMsgDiv.style.left = '10px';
+        }
+        if (opts.position == 'top-right') {
+          chrnMsgDiv.style.top = '10px';
+          chrnMsgDiv.style.right = '10px';
+        }
+        if (opts.position == 'top-left') {
+          chrnMsgDiv.style.top = '10px';
+          chrnMsgDiv.style.left = '10px';
+        }
+      }
+      // see if we need to show the close button
+      if (opts.close == true) {
+        // add the close button
+        var div = document.createElement('div');
+        div.setAttribute('id', 'in-app-message-close');
+        chrnMsgDiv.appendChild(div);
+        document.getElementById('in-app-message-close').onclick = function() {
+          // fadout the bg and message
+          InAppDunning.fadeout(document.getElementById('in-app-message'));
+          InAppDunning.fadeout(document.getElementById('in-app-message-bg'));
+        };
+      }
+      // add the cta
+      var cta = document.createElement('a');
+      cta.setAttribute('id', 'in-app-messaging-update-url');
+      cta.href = this.buttonUrl;
+      var ctaText = document.createTextNode(ctaText);
+      cta.appendChild(ctaText);
+      cta.style.backgroundColor = ctaBgColor;
+      cta.style.color = ctaTextColor;
+      chrnMsgDiv.appendChild(cta);
+      // display the message
+      this.fadein(chrnMsgDiv);
     }
-    // add the cta
-    var cta = document.createElement('a');
-    cta.setAttribute('id', 'churn-messaging-update-url');
-    cta.href = this.buttonUrl;
-    var ctaText = document.createTextNode(ctaText);
-    cta.appendChild(ctaText);
-    cta.style.backgroundColor = ctaBgColor;
-    cta.style.color = ctaTextColor;
-    chrnMsgDiv.appendChild(cta);
-    // display the message
-    this.fadein(chrnMsgDiv);
   },
   fadein: function(el) {
     el.style.opacity = 0;
     el.style.display = 'block';
-
-    // if it's a modal, position it before fading in
-    if (this.style == 'modal') {
-      if (this.modal.position == 'center') {
-        winMiddle = window.innerHeight / 2;
-        elMiddle = el.offsetHeight / 2;
-        elHalfWidth = el.offsetWidth / 2;
-        el.style.top = (winMiddle - elMiddle) + 'px';
-        el.style.left = 'calc(50% - '+elHalfWidth+'px)';
-      }
-      if (this.modal.position == 'bottom-right') {
-        el.style.bottom = '10px';
-        el.style.right = '10px';
-      }
-      if (this.modal.position == 'bottom-left') {
-        el.style.bottom = '10px';
-        el.style.left = '10px';
-      }
-      if (this.modal.position == 'top-right') {
-        el.style.top = '10px';
-        el.style.right = '10px';
-      }
-      if (this.modal.position == 'top-left') {
-        el.style.top = '10px';
-        el.style.left = '10px';
-      }
-    } else {
-      // position the bar
-      el.style[this.bar.position] = 0;
-    }
     // do the fade in
     var last = +new Date();
     var tick = function() {

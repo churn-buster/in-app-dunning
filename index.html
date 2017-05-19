@@ -6,17 +6,31 @@
     <title>Churn Buster - Churn Messaging.</title>
 
     <link rel="stylesheet" type="text/css" href="in-app-dunning.css">
-    <script type="text/javascript" src="in-app-dunning.js"></script>
-    <script type="text/javascript">
-      churnMessaging.showMessage = true;
-
-      window.onload = function () {
-        churnMessaging.check();
-      }
-    </script>
 
   </head>
   <body style="background-color:#e1e1e1;">
     <h1>In-app Dunning</h1>
   </body>
+
+  <script type="text/javascript" src="in-app-dunning.js"></script>
+  <script type="text/javascript">
+    InAppDunning.show({
+      show: true,
+      url: 'https://churnbuster.io/update',
+      style: 'modal', // modal|bar
+      close: true,
+      position:  'center', // modal: center|bottom-right|bottom-left|top-right|top-left // bar: top|bottom
+      button: {
+        color: '#fff',
+        bgColor: '#2ecc71'
+      },
+      modal: {
+        overlay: true
+      },
+      bar: {
+        color: '#3498db',
+        bgColor: '#d5e7f3'
+      }
+    });
+  </script>
 </html>

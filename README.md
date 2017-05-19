@@ -6,7 +6,7 @@ In-app-dunning is a javascript library that allows you present a message to your
 
 The only requirement for getting this library to work is to provide a way to set this variable:
 
-```churnMessaging.showMessage = true|false;```
+```InAppDunning.showMessage = true|false;```
 
 ## Installation
 
@@ -14,10 +14,10 @@ To start using the library simply add this code to the head of the html document
 
 ```<script type="text/javascript" src="in-app-dunning.js"></script>
 <script type="text/javascript">
-  churnMessaging.showMessage = true|false;
+  InAppDunning.showMessage = true|false;
 
   window.onload = function () {
-    churnMessaging.check();
+    InAppDunning.check();
   }
 </script>```
 
@@ -41,45 +41,45 @@ Depending on the style selected you can change the messages by setting the follo
 
 If you're using the modal style:
 
-```churnMessaging.modal.msg1.text1
-churnMessaging.modal.msg1.text2
-churnMessaging.modal.msg1.buttonText
-churnMessaging.modal.msg2.text1
-churnMessaging.modal.msg2.text2
-churnMessaging.modal.msg2.buttonText```
+```InAppDunning.modal.msg1.text1
+InAppDunning.modal.msg1.text2
+InAppDunning.modal.msg1.buttonText
+InAppDunning.modal.msg2.text1
+InAppDunning.modal.msg2.text2
+InAppDunning.modal.msg2.buttonText```
 
 And if you're using the bar style:
 
-```churnMessaging.bar.msg1.text
-churnMessaging.bar.msg1.buttonText
-churnMessaging.bar.msg2.text
-churnMessaging.bar.msg2.buttonText```
+```InAppDunning.bar.msg1.text
+InAppDunning.bar.msg1.buttonText
+InAppDunning.bar.msg2.text
+InAppDunning.bar.msg2.buttonText```
 
 ### Color
 
 If you're using the modal style we've you can change the button colors quite easily with these options:
 
-```churnMessaging.modal.msg1.buttonTextcolor
-churnMessaging.modal.msg1.buttonColor
-churnMessaging.modal.msg2.buttonTextcolor
-churnMessaging.modal.msg2.buttonColor```
+```InAppDunning.modal.msg1.buttonTextcolor
+InAppDunning.modal.msg1.buttonColor
+InAppDunning.modal.msg2.buttonTextcolor
+InAppDunning.modal.msg2.buttonColor```
 
 For the bar style:
 
-```churnMessaging.bar.bgColor
-churnMessaging.bar.textColor
-churnMessaging.bar.buttonBgColor
-churnMessaging.bar.buttonTextcolor```
+```InAppDunning.bar.bgColor
+InAppDunning.bar.textColor
+InAppDunning.bar.buttonBgColor
+InAppDunning.bar.buttonTextcolor```
 
 ### Close Button
 
-If you want to get a little in the face of your customers and not let them dismiss the messaging you can use the `churnMessaging.closeBtn` option to hide it (the default is to show it)
+If you want to get a little in the face of your customers and not let them dismiss the messaging you can use the `InAppDunning.closeBtn` option to hide it (the default is to show it)
 
-```churnMessaging.closeBtn```
+```InAppDunning.closeBtn```
 
 ### Position
 
-You can position the modal in 5 different places of the screen and the bar in 2 by setting `churnMessaging.modal.position`.
+You can position the modal in 5 different places of the screen and the bar in 2 by setting `InAppDunning.modal.position`.
 
 The 5 modal options are:
 
@@ -94,7 +94,7 @@ And the 2 bar options are:
 
 You can choose to either have a background behind the overlay or not with this option:
 
-```churnMessaging.modal.overlayBg```
+```InAppDunning.modal.overlayBg```
 
 It's value can be either `true` or `false`
 
@@ -103,6 +103,6 @@ It's value can be either `true` or `false`
 
 The bar option also has 1 additional option to set the color of text.
 
-```churnMessaging.bar.textColor```
+```InAppDunning.bar.textColor```
 
 Copyright 2017 Churn Buster - Released under the MIT License
