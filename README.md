@@ -5,8 +5,6 @@ In-app-dunning is a javascript library that allows you respond to failed payment
 
 It's an easy way to give them a nudge to update their payment method while you have their attention.
 
-![Churnbuster](https://cloud.githubusercontent.com/assets/472769/26270608/cf301612-3cc1-11e7-979f-45a1cea644ce.png)
-
 If you are finding failed payments to be a regular problem, check out our core application at https://churnbuster.io.
 
 
@@ -58,5 +56,6 @@ As you can see in the above code block, we've provided a ton of options to custo
 | bar.color | Sets the text color used in the bar style. Style must equal bar. | blue |
 | bar.bgColor | Sets the background color of the bar. Style must be set to bar. | white |
 
+![Churnbuster](https://cloud.githubusercontent.com/assets/472769/26270608/cf301612-3cc1-11e7-979f-45a1cea644ce.png)
 
 Copyright 2017 Churn Buster - Released under the MIT License
