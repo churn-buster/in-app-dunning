@@ -12,126 +12,51 @@ If you are finding failed payments to be a regular problem, check out our core a
 
 ## Requirements
 
-The only requirement for getting this library to work is to provide a way to set this variable:
-
-```InAppDunning.showMessage = true|false;```
+The library only requires 2 things to work (as outlined below), the `show` option to be set and a url for your payment form.
 
 ## Installation
 
-To start using the library simply add this code to the head of the html documents you want the message to be displayed on, taking care to set the `showMessage` variable appropriately so only the customers you want to see the messaging see it.
+To start using the library simply include the js file on your page and include the `InAppDunning.show` code with the variables you want to include.
 ```
 <script type="text/javascript" src="in-app-dunning.js"></script>
 <script type="text/javascript">
-  InAppDunning.showMessage = true|false;
-
-  window.onload = function () {
-    InAppDunning.check();
-  }
+  InAppDunning.show({
+    show: true,
+    url: 'https://churnbuster.io/update',
+    style: 'modal', // modal|bar
+    close: true,
+    position:  'center', // modal: center|bottom-right|bottom-left|top-right|top-left // bar: top|bottom
+    button: {
+      color: '#fff',
+      bgColor: '#2ecc71'
+    },
+    modal: {
+      overlay: true
+    },
+    bar: {
+      color: '#3498db',
+      bgColor: '#ffffff'
+    }
+  });
 </script>
 ```
 
-## Customization
+## Customization Options
 
-We've provided a ton of options to customize this library.
+As you can see in the above code block, we've provided a ton of options to customize this library. Here's a breakdown and explanation for each option (* = required):
 
-### Style
+| Option | Explanation/Setting | Default |
+| ------------- | ------------- | ------------- |
+| show* | Can be either true or false, true will display the dunning message | false |
+| url* | This is the url you want the button in the message to go to (most likely a payment form) | blank |
+| style | Can be either `modal` or `bar` (default is modal) | modal |
+| close | Set this to `true` to allow the user to close the message, set it to false to force them to look at it until they take action | true |
+| position | Depending whether you've set the style to modal or bar you can position the message many ways. Modal options are: `center`, `bottom-right`, `bottom-left`, `top-right`, `top-left`, bar options are: `top` or `bottom` | modal = center, bar = bottom |
+| button.color | Sets the color of the text in the button | white |
+| button.bgColor | Sets the background color of the button | green |
+| modal.overlay | Sets whether to use an overlay under the modal to ensure no other options can be clicked, only availabe if style = modal, can either be `true` or `false` | true |
+| bar.color | Sets the text color used in the bar style. Style must equal bar. | blue |
+| bar.bgColor | Sets the background color of the bar. Style must be set to bar. | white |
 
-There's 2 styles provided, modal and bar. "Modal" will take over the screen, "Bar" will simply show up over top of your page at the bottom of the screen.
-
-The style is set with this variable:
-
-```style: 'modal|bar'```
-
-### Messaging
-
-Default messaging is provided, editable to your liking.
-
-Depending on the style selected you can change the messages by setting the following variables.
-
-For the modal style:
-
-```InAppDunning.modal.msg1.text1
-InAppDunning.modal.msg1.text2
-InAppDunning.modal.msg1.buttonText
-InAppDunning.modal.msg2.text1
-InAppDunning.modal.msg2.text2
-InAppDunning.modal.msg2.buttonText```
-
-For the bar style:
-
-```InAppDunning.bar.msg1.text
-InAppDunning.bar.msg1.buttonText
-InAppDunning.bar.msg2.text
-InAppDunning.bar.msg2.buttonText```
-
-### Color
-
-For the modal style, change button colors quite with these options:
-
-```InAppDunning.modal.msg1.buttonTextcolor
-InAppDunning.modal.msg1.buttonColor
-InAppDunning.modal.msg2.buttonTextcolor
-InAppDunning.modal.msg2.buttonColor```
-
-For the bar style:
-
-```InAppDunning.bar.bgColor
-InAppDunning.bar.textColor
-InAppDunning.bar.buttonBgColor
-InAppDunning.bar.buttonTextcolor```
-
-### Close Button
-
-If you want to get a little in the face of your customers and not let them dismiss the messaging you can use the `InAppDunning.closeBtn` option to hide it (the default is to show it)
-=======
-```
-churnMessaging.modal.msg1.buttonTextcolor
-churnMessaging.modal.msg1.buttonColor
-churnMessaging.modal.msg2.buttonTextcolor
-churnMessaging.modal.msg2.buttonColor
-```
-
-For the bar style:
-
-```
-churnMessaging.bar.bgColor
-churnMessaging.bar.textColor
-churnMessaging.bar.buttonBgColor
-churnMessaging.bar.buttonTextcolor
-```
-
-### Close Button
-
-For more aggressive messaging, you can hide the close button (so the notification can't be easily dismissed) by using the `churnMessaging.closeBtn` option.
-
-```InAppDunning.closeBtn```
-
-### Position
-
-You can position the modal in 5 different places of the screen and the bar in 2 by setting `InAppDunning.modal.position`.
-
-The 5 modal options are:
-
-```center|bottom-right|bottom-left|top-right|top-left```
-
-And the 2 bar options are:
-
-```top|bottom```
-
-### Modal Specific Options
-***Background***
-
-You can choose to either have a background behind the modal, or not have one, with this option:
-
-```InAppDunning.modal.overlayBg```
-
-It's value can be either `true` or `false`
-
-### Bar Specific Options
-**Text Color**
-
-The bar option also has 1 additional option to set the color of text.
-
-```InAppDunning.bar.textColor```
 
 Copyright 2017 Churn Buster - Released under the MIT License
