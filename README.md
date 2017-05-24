@@ -7,6 +7,7 @@ It's an easy way to give them a nudge to update their payment method while you h
 
 If you are finding failed payments to be a regular problem, check out our core application at https://churnbuster.io.
 
+![example-message](https://cloud.githubusercontent.com/assets/472769/26420074/39394e34-4087-11e7-8080-fee9cd4080c1.png)
 
 ## Requirements
 
