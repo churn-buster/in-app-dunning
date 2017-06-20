@@ -11,7 +11,7 @@ If you are finding failed payments to be a regular problem, check out our core a
 
 ## Requirements
 
-The library only requires 2 things to work (as outlined below), the `show` option to be set and a url for your payment form.
+The library only requires 1 thing to work (as outlined below), a url for your payment form.
 
 ## Installation
 
@@ -20,7 +20,6 @@ To start using the library simply include the js file on your page and include t
 <script type="text/javascript" src="in-app-dunning.js"></script>
 <script type="text/javascript">
   InAppDunning.show({
-    show: true,
     url: 'https://churnbuster.io/update',
     style: 'modal', // modal|bar
     close: true,
@@ -46,7 +45,6 @@ As you can see in the above code block, we've provided a ton of options to custo
 
 | Option | Explanation/Setting | Default |
 | ------------- | ------------- | ------------- |
-| show* | Can be either true or false, true will display the dunning message | false |
 | url* | This is the url you want the button in the message to go to (most likely a payment form) | blank |
 | style | Can be either `modal` or `bar` (default is modal) | modal |
 | close | Set this to `true` to allow the user to close the message, set it to false to force them to look at it until they take action | true |
