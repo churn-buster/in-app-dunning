@@ -1,17 +1,21 @@
 # In-App Dunning for Failed Payments
-## Compatible with Stripe, Braintree, Authorize.net, and any other payment processor
+## Compatible with Stripe, Braintree, Authorize.net...any payment processor really
 
 ![example-message](https://cloud.githubusercontent.com/assets/472769/26421100/6c2ec082-408a-11e7-9932-9e652d94abd1.png)
 
-In-app-dunning is a javascript library that allows you respond to failed payments by displaying a message to subscribers while they are logged into your app.
+When recurring payments fail, prompt users to take action while they are logged into your app (and you have their attention!).
 
-It's an easy way to give them a nudge to update their payment method while you have their attention.
+In-app-dunning is a javascript library that displays a in-app messages at the right time, directing the user to update their credit card via your billing page. 
 
-If you are finding failed payments to be a regular problem, check out our core application at https://churnbuster.io.
+If failed subscription payments are a problem for your business, 
+check out our core product at https://churnbuster.io.
 
 ## Requirements
 
-The library only requires 1 thing to work (as outlined below), a url for your payment form.
+Installing in-app dunning requires:
+- Basic Javascript
+- A URL for your credit card update page
+- Access to subscriber past-due/payment status (via payment processor)
 
 ## Installation
 
@@ -41,7 +45,7 @@ To start using the library simply include the js file on your page and include t
 
 ## Customization Options
 
-As you can see in the above code block, we've provided a ton of options to customize this library. Here's a breakdown and explanation for each option (* = required):
+As you can see in the above code block, there are options to customize this library. Here's an explanation for each option (* = required):
 
 | Option | Explanation/Setting | Default |
 | ------------- | ------------- | ------------- |
@@ -54,6 +58,7 @@ As you can see in the above code block, we've provided a ton of options to custo
 | modal.overlay | Sets whether to use an overlay under the modal to ensure no other options can be clicked, only availabe if style = modal, can either be `true` or `false` | true |
 | bar.color | Sets the text color used in the bar style. Style must equal bar. | blue |
 | bar.bgColor | Sets the background color of the bar. Style must be set to bar. | white |
+
 
 
 ![Churnbuster](https://cloud.githubusercontent.com/assets/472769/26270608/cf301612-3cc1-11e7-979f-45a1cea644ce.png)
