@@ -1,5 +1,5 @@
 # In-App Dunning for Failed Payments
-## Compatible with Stripe, Braintree, Authorize.net...any payment processor really
+## Compatible with Stripe, Braintree, Authorize.net and most payment processors
 
 ![example-message](https://cloud.githubusercontent.com/assets/472769/26421100/6c2ec082-408a-11e7-9932-9e652d94abd1.png)
 
@@ -15,11 +15,11 @@ check out our core product at https://churnbuster.io.
 Installing in-app dunning requires:
 - Basic Javascript
 - A URL for your credit card update page
-- Access to subscriber past-due/payment status (via payment processor)
+- Access to subscriber failed payment status (via payment processor)
 
 ## Installation
 
-You'll need access to the customers 'failed payment status' and to wrap InAppDunning.show in an if statement. To get started you can simply copy/paste the code below, **REPLACE 'CUSTOMER_FAILED_PAYMENT_STATUS' WITH YOUR REAL VARIABLE** and customize the variables to what you want (or remove the ones you don't want to customize or use).
+Copy/paste the code below, **replace 'CUSTOMER_FAILED_PAYMENT_STATUS' with your real variable** and customize the pop-up as desired (see: Customization Options).
 
 ```
 <script type="text/javascript" src="in-app-dunning.js"></script>
