@@ -77,34 +77,29 @@
 
       <h3>Installation</h3>
 
-      <p>You'll need access to the customers 'failed payment status' and to wrap InAppDunning.show in an if statement similar to this pseudo code:</p>
-
-      <pre>if (customer_failed_payment_status equals failed) {
-  InAppDunning.show;
-};</pre>
-
-To get started you can simply copy/paste the code below and customize the variables to what you want (or remove the ones you don't want to customize or use).
-      <p>To start using the library simply include the js file on your page and include the `InAppDunning.show` code with the variables you want to include.</p>
+      <p>You'll need access to the customers 'failed payment status' and to wrap InAppDunning.show in an if statement. To get started you can simply copy/paste the code below, **REPLACE 'CUSTOMER_FAILED_PAYMENT_STATUS' WITH YOUR REAL VARIABLE** and customize the variables to what you want (or remove the ones you don't want to customize or use).</p>
 
       <pre>&lt;script type="text/javascript" src="in-app-dunning.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
-  InAppDunning.show({
-    url: 'https://churnbuster.io/update',
-    style: 'modal', // modal|bar
-    close: true,
-    position:  'center', // modal: center|bottom-right|bottom-left|top-right|top-left // bar: top|bottom
-    button: {
-      color: '#fff',
-      bgColor: '#2ecc71'
-    },
-    modal: {
-      overlay: true
-    },
-    bar: {
-      color: '#3498db',
-      bgColor: '#ffffff'
-    }
-  });
+  if (CUSTOMER_FAILED_PAYMENT_STATUS == "failed") {
+    InAppDunning.show({
+      url: 'https://churnbuster.io/update',
+      style: 'modal', // modal|bar
+      close: true,
+      position:  'center', // modal: center|bottom-right|bottom-left|top-right|top-left // bar: top|bottom
+      button: {
+        color: '#fff',
+        bgColor: '#2ecc71'
+      },
+      modal: {
+        overlay: true
+      },
+      bar: {
+        color: '#3498db',
+        bgColor: '#ffffff'
+      }
+    });
+  }
 &lt;/script&gt;</pre>
 
       <h3>Customization Options</h3>

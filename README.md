@@ -5,9 +5,9 @@
 
 When recurring payments fail, prompt users to take action while they are logged into your app (and you have their attention!).
 
-In-app-dunning is a javascript library that displays a in-app messages at the right time, directing the user to update their credit card via your billing page. 
+In-app-dunning is a javascript library that displays a in-app messages at the right time, directing the user to update their credit card via your billing page.
 
-If failed subscription payments are a problem for your business, 
+If failed subscription payments are a problem for your business,
 check out our core product at https://churnbuster.io.
 
 ## Requirements
@@ -19,36 +19,30 @@ Installing in-app dunning requires:
 
 ## Installation
 
-You'll need access to the customers 'failed payment status' and to wrap InAppDunning.show in an if statement similar to this pseudo code:
-
-```
-if (customer_failed_payment_status equals failed) {
-  InAppDunning.show;
-};
-```
-
-To get started you can simply copy/paste the code below and customize the variables to what you want (or remove the ones you don't want to customize or use).
+You'll need access to the customers 'failed payment status' and to wrap InAppDunning.show in an if statement. To get started you can simply copy/paste the code below, **REPLACE 'CUSTOMER_FAILED_PAYMENT_STATUS' WITH YOUR REAL VARIABLE** and customize the variables to what you want (or remove the ones you don't want to customize or use).
 
 ```
 <script type="text/javascript" src="in-app-dunning.js"></script>
 <script type="text/javascript">
-  InAppDunning.show({
-    url: 'https://churnbuster.io/update',
-    style: 'modal', // modal|bar
-    close: true,
-    position:  'center', // modal: center|bottom-right|bottom-left|top-right|top-left // bar: top|bottom
-    button: {
-      color: '#fff',
-      bgColor: '#2ecc71'
-    },
-    modal: {
-      overlay: true
-    },
-    bar: {
-      color: '#3498db',
-      bgColor: '#ffffff'
-    }
-  });
+  if (CUSTOMER_FAILED_PAYMENT_STATUS == "failed") {
+    InAppDunning.show({
+      url: 'https://churnbuster.io/update',
+      style: 'modal', // modal|bar
+      close: true,
+      position:  'center', // modal: center|bottom-right|bottom-left|top-right|top-left // bar: top|bottom
+      button: {
+        color: '#fff',
+        bgColor: '#2ecc71'
+      },
+      modal: {
+        overlay: true
+      },
+      bar: {
+        color: '#3498db',
+        bgColor: '#ffffff'
+      }
+    });
+  }
 </script>
 ```
 
