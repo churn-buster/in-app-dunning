@@ -15,7 +15,16 @@ The library only requires 1 thing to work (as outlined below), a url for your pa
 
 ## Installation
 
-To start using the library simply include the js file on your page and include the `InAppDunning.show` code with the variables you want to include.
+You'll need access to the customers 'failed payment status' and to wrap InAppDunning.show in an if statement similar to this pseudo code:
+
+```
+if (customer_failed_payment_status equals failed) {
+  InAppDunning.show;
+};
+```
+
+To get started you can simply copy/paste the code below and customize the variables to what you want (or remove the ones you don't want to customize or use).
+
 ```
 <script type="text/javascript" src="in-app-dunning.js"></script>
 <script type="text/javascript">
